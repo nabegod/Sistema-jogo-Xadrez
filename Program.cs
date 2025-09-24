@@ -20,23 +20,19 @@ namespace xadrez_console
                     try
                     {
                         Console.Clear();
-                        Tela.imprimirTabuleiro(partida.tab);
-                        Console.WriteLine();
-                        Console.WriteLine("Turno: " + partida.turno);
-                        Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                        Tela.imprimirPartida(partida);
 
-                        //
                         Console.WriteLine();
                         Console.Write("Origem: ");
                         Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
                         partida.validarPosicaoDeOrigem(origem);
 
-                        bool[,] posicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis(); //pega as posições possíveis da peça escolhida e quais os movimentos possiveis
+                        bool[,] posicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis();
 
+                        // Mostra o tabuleiro com movimentos possíveis
                         Console.Clear();
-                        Tela.imprimirTabuleiro(partida.tab);
+                        Tela.imprimirTabuleiro(partida.tab, posicoesPossiveis);
 
-                        //leitura do destino
                         Console.WriteLine();
                         Console.Write("Destino: ");
                         Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
@@ -48,11 +44,11 @@ namespace xadrez_console
                         Console.WriteLine(e.Message);
                         Console.ReadLine();
                     }
-
-                    
                 }
 
-                Tela.imprimirTabuleiro(partida.tab);
+                // Imprime o estado final da partida
+                Console.Clear();
+                Tela.imprimirPartida(partida);
 
 
             }
