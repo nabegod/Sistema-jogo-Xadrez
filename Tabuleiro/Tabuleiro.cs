@@ -27,6 +27,10 @@ namespace tabuleiro
         //  
         public Peca peca(Posicao pos)
         {
+            if (!posicaoValida(pos))
+            {
+                throw new TabuleiroException("Posição fora dos limites do tabuleiro!");
+            }
             return pecas[pos.linha, pos.coluna];
         }
 
