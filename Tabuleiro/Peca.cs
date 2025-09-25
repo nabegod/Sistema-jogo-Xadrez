@@ -41,7 +41,9 @@ namespace tabuleiro
             return false;
         }
 
-        public bool podeMoverPara(Posicao pos)
+        // método para verificar se a peça pode mover para determinada posição
+
+        public bool movimentoPossivel(Posicao pos)
         {
             return movimentosPossiveis()[pos.linha, pos.coluna];
         }
