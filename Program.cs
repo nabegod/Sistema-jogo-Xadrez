@@ -46,6 +46,7 @@ namespace xadrez_console
                     }
                 }
 
+
                 // Imprime o estado final da partida
                 Console.Clear();
                 Tela.imprimirPartida(partida);
